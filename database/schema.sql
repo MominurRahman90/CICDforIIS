@@ -1,12 +1,5 @@
 -- Oracle Database Schema for CRUD API
--- Run this script as DBA to create the application schema
-
--- Create user for the application (run as SYSTEM/DBA)
--- CREATE USER CRUD_USER IDENTIFIED BY your_password;
--- GRANT CONNECT, RESOURCE TO CRUD_USER;
--- GRANT CREATE SESSION TO CRUD_USER;
--- GRANT CREATE TABLE TO CRUD_USER;
--- GRANT CREATE SEQUENCE TO CRUD_USER;
+-- Run this script to create the application table
 
 -- Create PRODUCTS table
 CREATE TABLE PRODUCTS (
