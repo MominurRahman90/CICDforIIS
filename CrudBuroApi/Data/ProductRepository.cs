@@ -29,7 +29,7 @@ namespace CrudBuroApi.Data
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT ID, NAME, DESCRIPTION, PRICE, STOCK_QUANTITY, IS_ACTIVE, CREATED_AT, UPDATED_AT FROM PRODUCTS WHERE IS_ACTIVE = 1 ORDER BY CREATED_AT DESC";
+                    cmd.CommandText = "SELECT ID, NAME, DESCRIPTION, PRICE, STOCK_QUANTITY, IS_ACTIVE, CREATED_AT, UPDATED_AT FROM CICDTest_PRODUCTS WHERE IS_ACTIVE = 1 ORDER BY CREATED_AT DESC";
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -49,7 +49,7 @@ namespace CrudBuroApi.Data
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT ID, NAME, DESCRIPTION, PRICE, STOCK_QUANTITY, IS_ACTIVE, CREATED_AT, UPDATED_AT FROM PRODUCTS WHERE ID = :id";
+                    cmd.CommandText = "SELECT ID, NAME, DESCRIPTION, PRICE, STOCK_QUANTITY, IS_ACTIVE, CREATED_AT, UPDATED_AT FROM CICDTest_PRODUCTS WHERE ID = :id";
                     cmd.Parameters.Add(new OracleParameter("id", id));
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -70,7 +70,7 @@ namespace CrudBuroApi.Data
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"INSERT INTO PRODUCTS (NAME, DESCRIPTION, PRICE, STOCK_QUANTITY, IS_ACTIVE, CREATED_AT) 
+                    cmd.CommandText = @"INSERT INTO CICDTest_PRODUCTS (NAME, DESCRIPTION, PRICE, STOCK_QUANTITY, IS_ACTIVE, CREATED_AT) 
                                        VALUES (:name, :description, :price, :stockQuantity, 1, SYSTIMESTAMP) 
                                        RETURNING ID INTO :id";
                     cmd.Parameters.Add(new OracleParameter("name", dto.Name));
@@ -81,7 +81,7 @@ namespace CrudBuroApi.Data
                     cmd.Parameters.Add(idParam);
                     cmd.ExecuteNonQuery();
 
-                    int newId = Convert.ToInt32(idParam.Value);
+                    int newId = ((Oracle.ManagedDataAccess.Types.OracleDecimal)idParam.Value).ToInt32();
                     return GetById(newId);
                 }
             }
@@ -94,7 +94,7 @@ namespace CrudBuroApi.Data
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"UPDATE PRODUCTS 
+                    cmd.CommandText = @"UPDATE CICDTest_PRODUCTS 
                                        SET NAME = :name, DESCRIPTION = :description, PRICE = :price, 
                                            STOCK_QUANTITY = :stockQuantity, IS_ACTIVE = :isActive, UPDATED_AT = SYSTIMESTAMP 
                                        WHERE ID = :id";
@@ -118,7 +118,7 @@ namespace CrudBuroApi.Data
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE FROM PRODUCTS WHERE ID = :id";
+                    cmd.CommandText = "DELETE FROM CICDTest_PRODUCTS WHERE ID = :id";
                     cmd.Parameters.Add(new OracleParameter("id", id));
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;
