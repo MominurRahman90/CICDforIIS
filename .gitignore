@@ -1,0 +1,43 @@
+## .NET Framework
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userosscache
+*.sln.docstats
+*.userprefs
+
+## NuGet
+packages/
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+## Visual Studio
+.vs/
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+
+## Build results
+[Bb]uild[Ll]og.*
+TestResult.xml
+
+## Publish output
+publish/
+**/publish/
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Misc
+*.swp
+*~
