@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CrudBuroApi - .NET Framework 4.8</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #0078d4; }
+        .endpoint { background: #f0f0f0; padding: 10px 15px; margin: 8px 0; border-radius: 4px; font-family: monospace; }
+        .method { font-weight: bold; color: white; padding: 2px 8px; border-radius: 3px; margin-right: 10px; }
+        .get { background: #28a745; }
+        .post { background: #007bff; }
+        .put { background: #ffc107; color: #333; }
+        .delete { background: #dc3545; }
+        a { color: #0078d4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CrudBuroApi</h1>
+        <p>.NET Framework 4.8 Web API with Oracle Database</p>
+        
+        <h2>API Endpoints:</h2>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <a href="/api/health">/api/health</a> - Health Check
+        </div>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <a href="/api/products">/api/products</a> - Get All Products
+        </div>
+        
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            /api/products - Create Product
+        </div>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            /api/products/{id} - Get Product by ID
+        </div>
+        
+        <div class="endpoint">
+            <span class="method put">PUT</span>
+            /api/products/{id} - Update Product
+        </div>
+        
+        <div class="endpoint">
+            <span class="method delete">DELETE</span>
+            /api/products/{id} - Delete Product
+        </div>
+        
+        <h2>Quick Links:</h2>
+        <p><a href="/api/health" target="_blank">Test Health Check</a></p>
+        <p><a href="/api/products" target="_blank">View All Products</a></p>
+    </div>
+</body>
+</html>
